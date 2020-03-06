@@ -27,6 +27,7 @@
                     <th>Transcript Name</th>
                     <th>Student Name</th>
                     <th>Transcript Date</th>
+                    <th>Status</th>
                     <th>Details</th>
                 </tr>
 
@@ -35,6 +36,7 @@
                     <td>Transcript 1</td>
                     <td>Ieaun Roberts</td>
                     <td>10/05/2020</td>
+                    <td style="color:green">Access granted</td>
                     <td>@Html.ActionLink("More Details", "Detailed_Transcript", "Home")</td>
                 </tr>
 
@@ -43,13 +45,15 @@
                     <td>Transcript 2</td>
                     <td>Ieaun Roberts</td>
                     <td>10/05/2019</td>
-                    <td>@Html.ActionLink("More Details", "Detailed_Transcript", "Home")</td>
+                    <td style="color:goldenrod">Pending</td>
+                    <td>Unavailabe</td>
 
                 <tr>
                     <td>3</td>
                     <td>Transcript 1</td>
                     <td>Vasilica Androsca</td>
-                    <td>10/05/2020</td>
+                    <td>10/05/2020</td>                  
+                    <td style="color:green">Access granted</td>
                     <td>@Html.ActionLink("More Details", "Detailed_Transcript", "Home")</td>
                 </tr>
 
@@ -58,7 +62,8 @@
                     <td>Transcript 1</td>
                     <td>Farah Aly</td>
                     <td>10/05/2020</td>
-                    <td>@Html.ActionLink("More Details", "Detailed_Transcript", "Home")</td>
+                    <td style="color:red">Access denied</td>
+                    <td>Unavailabe</td>
                 </tr>
 
             </table>

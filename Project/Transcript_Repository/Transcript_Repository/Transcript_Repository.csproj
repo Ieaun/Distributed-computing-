@@ -281,6 +281,8 @@
     <Content Include="Views\Home\Actions.cshtml" />
     <Content Include="Views\Home\Transcripts.cshtml" />
     <Content Include="Views\Home\Detailed_Transcript.cshtml" />
+    <Content Include="Views\Home\ManualUpload.cshtml" />
+    <Content Include="Views\Home\UploadTranscripts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

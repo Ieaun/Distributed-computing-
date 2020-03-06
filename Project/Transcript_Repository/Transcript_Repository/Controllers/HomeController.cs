@@ -47,6 +47,21 @@ namespace Transcript_Repository.Controllers
 
             return View();
         }
+        
+        //manual
+         public ActionResult ManualUpload()
+        {
+            ViewBag.Message = "Your upload transcript page.";
 
+            return View();
+        }
+
+        //chose manual or upload pdf
+        public ActionResult UploadTranscripts()
+        {
+            ViewBag.Message = "Your upload transcript page.";
+
+            return View();
+        }
     }
 }
