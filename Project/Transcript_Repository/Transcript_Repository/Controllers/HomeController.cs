@@ -27,10 +27,8 @@ namespace Transcript_Repository.Controllers
             return View();
         }
 
-        public ActionResult Transcripts()
+        public ActionResult NotImplemented()
         {
-            ViewBag.Message = "Your transcripts page.";
-
             return View();
         }
 
@@ -41,27 +39,6 @@ namespace Transcript_Repository.Controllers
             return View();
         }
 
-        public ActionResult Detailed_Transcript()
-        {
-            ViewBag.Message = "Your detailed transcript page.";
-
-            return View();
-        }
-        
-        //manual
-         public ActionResult ManualUpload()
-        {
-            ViewBag.Message = "Your upload transcript page.";
-
-            return View();
-        }
-
-        //chose manual or upload pdf
-        public ActionResult UploadTranscripts()
-        {
-            ViewBag.Message = "Your upload transcript page.";
-
-            return View();
-        }
+     
     }
 }
