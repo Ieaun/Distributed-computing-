@@ -1,6 +1,4 @@
-﻿@{
-    ViewBag.Title = "Transcripts";
-}
+﻿@model Transcript_Repository.ViewModels.TranscriptViewModel
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 <!DOCTYPE html>
@@ -39,6 +37,18 @@
                     <td style="color:green">Access granted</td>
                     <td>@Html.ActionLink("More Details", "Detailed_Transcript", "SeeTranscripts")</td>
                 </tr>
+                @foreach (var transcript_ in Model.Transcripts)
+                {
+                    <tr>
+                        <td>@transcript_.Transcript_ID</td>
+                        <td>Transcript mock</td>
+                        <td>Mr Mocker</td>
+                        <td>10/05/2019</td>
+                        <td style="color:goldenrod">Pending</td>
+                        <td>Unavailabe</td>
+                    </tr> 
+                }
+
 
                 <tr>
                     <td>2</td>
