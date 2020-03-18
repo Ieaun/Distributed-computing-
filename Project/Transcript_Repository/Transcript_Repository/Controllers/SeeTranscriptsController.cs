@@ -14,17 +14,65 @@ namespace Transcript_Repository.Controllers
         // GET: SeeTranscripts
         public ActionResult Index()
         {
+            var model = new TranscriptViewModel();
+            //create 10 mock transcripts and add them to transcript list
+            //basically this is replaced with get all transcripts this person should see
+            Random rnd = new Random();
+            int noTrannies = rnd.Next(1,15);
+            for (int i = 0; i < noTrannies; i++)
+            {
+                model.Transcripts.Add(GiveMeAMockTranscript(999999, i));
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Detailed_Transcript(string TranscriptID = "999999")
+        {
+            ViewBag.Message = "Your detailed transcript page.";
+
+            //get 1 transcript
+            var model = new TranscriptViewModel();
+
+            model.Transcripts.Add(   GiveMeAMockTranscript(int.Parse(TranscriptID)  )    );
+            return View(model);
+        }
+
+        public ActionResult EditTranscripts()
+        {
+            var model = new TranscriptViewModel();
+            //create 10 mock transcripts and add them to transcript list
+            //basically this is replaced with get all transcripts this person should see
+            Random rnd = new Random();
+            int noTrannies = rnd.Next(1, 15);
+            for (int i = 0; i < noTrannies; i++)
+            {
+                model.Transcripts.Add(GiveMeAMockTranscript(999999, i));
+            }
+            return View(model);
+        }
+
+
+
+        public TranscriptDto GiveMeAMockTranscript(int TranscriptID = 999999,int counter = 0)
+        {
+
             //////////////////mock Modules 
+            Random rnd = new Random();
+            if (TranscriptID == 999999)
+            {
+                TranscriptID = rnd.Next(100000, 999999);
+            }
             List<ModuleDto> Mock_Modules = new List<ModuleDto>();
             string ModuleName = "Module_";
             for (int i = 0; i < 6; i++)
             {
                 ModuleDto newModule = new ModuleDto
                 {
-                    ACWGrade = 5* i,
-                    ModuleGrade = 60 - (i),
+                    ACWGrade = rnd.Next(1,100),
+                    ModuleGrade = rnd.Next(1, 100),
                     Module_ACWs = ModuleName + i,
-                    Module_ID = 700098
+                    Module_ID = rnd.Next(100000, 999999)
                 };
                 Mock_Modules.Add(newModule);
             }
@@ -32,26 +80,15 @@ namespace Transcript_Repository.Controllers
             //mock transcript
             TranscriptDto Transcript_mock = new TranscriptDto
             {
-                EnrolledCourseID= 20,
-                SemesterID= 1,
-                Transcript_ID = 523321,
-                Modules_Taken = Mock_Modules
-
+                EnrolledCourseID = 20,
+                SemesterID = rnd.Next(1, 3),
+                Transcript_ID = TranscriptID+ counter, //999999
+                Modules_Taken = Mock_Modules//6 fake modules
             };
-           
-
-            var model = new TranscriptViewModel();
-            model.Transcripts.Add(Transcript_mock);
-     
-
-            return View(model);
+        
+            return Transcript_mock;
         }
 
-        public ActionResult Detailed_Transcript()
-        {
-            ViewBag.Message = "Your detailed transcript page.";
 
-            return View();
-        }
     }
 }

@@ -1,8 +1,7 @@
 ﻿@model Transcript_Repository.ViewModels.TranscriptViewModel
 @{
-    ViewBag.Title = "View Transcript";
+    ViewBag.Title = "Edit Transcript";
 }
-
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 <!DOCTYPE html>
@@ -18,68 +17,41 @@
             <!-- Default panel contents -->
             <div class="panel-heading">My Transcripts</div>
             <div class="panel-body">
-                <p>You have <span id="TotalNumberTranscripts"> @(Model.Transcripts.Count + 4) </span> transcripts available</p>
+                <p>You have <span id="TotalNumberTranscripts">You have @Model.Transcripts.Count transcripts availabe</span> transcripts available</p>
             </div>
 
             <!-- Table -->
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for student names.." title="Type in a name">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for transcript ID's.........." title="Type in a name">
             <table id="myTable" class="table">
                 <tr>
                     <th>Transcript ID</th>
-                    <th>Transcript Name</th>
+                    <th>Student ID</th>
                     <th>Student Name</th>
                     <th>Transcript Date</th>
-                    <th>Status</th>
-                    <th>Details</th>
+                    <th>Edit</th>
                 </tr>
 
                 <tr>
                     <td>1</td>
-                    <td>Transcript 1</td>
+                    <td>532542</td>
                     <td>Ieaun Roberts</td>
                     <td>10/05/2020</td>
-                    <td style="color:green">Access granted</td>
-                    <td>@Html.ActionLink("More Details", "Detailed_Transcript", "SeeTranscripts")</td>
+                    <td></td>
                 </tr>
 
                 @foreach (var transcript_ in Model.Transcripts)
                 {
                     <tr>
                         <td>@transcript_.Transcript_ID</td>
-                        <td>Transcript mock</td>
+                        <td>231253</td>
                         <td>Mr Mocker</td>
                         <td>10/05/2019</td>
-                        <td style="color:green">Access granted</td>
-                        <td>@Html.ActionLink("More Details", "Detailed_Transcript", "SeeTranscripts")</td>
-                    </tr>
-                }
-
-
-                <tr>
-                    <td>2</td>
-                    <td>Transcript 2</td>
-                    <td>Ieaun Roberts</td>
-                    <td>10/05/2019</td>
-                    <td style="color:goldenrod">Pending</td>
-                    <td>Unavailabe</td>
-
-                <tr>
-                    <td>3</td>
-                    <td>Transcript 1</td>
-                    <td>Vasilica Androsca</td>
-                    <td>10/05/2020</td>
-                    <td style="color:green">Access granted</td>
-                    <td>@Html.ActionLink("More Details", "Detailed_Transcript", "SeeTranscripts")</td>
+                        <td>
+                            @Html.ActionLink("Edit", "NotImplemented", "Home",
+                       new { TranscriptID= @transcript_.Transcript_ID },null)
+                    </td>
                 </tr>
-
-                <tr>
-                    <td>4</td>
-                    <td>Transcript 1</td>
-                    <td>Farah Aly</td>
-                    <td>10/05/2020</td>
-                    <td style="color:red">Access denied</td>
-                    <td>Unavailabe</td>
-                </tr>
+            }
 
             </table>
             <script>
@@ -90,7 +62,7 @@
                     table = document.getElementById("myTable");
                     tr = table.getElementsByTagName("tr");
                     for (i = 0; i < tr.length; i++) {
-                        td = tr[i].getElementsByTagName("td")[2];
+                        td = tr[i].getElementsByTagName("td")[0];
                         if (td) {
                             txtValue = td.textContent || td.innerText;
                             if (txtValue.toUpperCase().indexOf(filter) > -1) {
