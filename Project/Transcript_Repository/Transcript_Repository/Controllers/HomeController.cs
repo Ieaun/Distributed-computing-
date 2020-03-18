@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Transcript_Repository.DtoModels.Module;
+using Transcript_Repository.DtoModels.Transcript;
+using Transcript_Repository.ViewModels;
 
 namespace Transcript_Repository.Controllers
 {
@@ -32,13 +35,16 @@ namespace Transcript_Repository.Controllers
             return View();
         }
 
+     
+
         public ActionResult Actions()
         {
             ViewBag.Message = "Your actions page.";
 
             return View();
         }
+        
 
-     
+
     }
 }
