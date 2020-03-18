@@ -18,8 +18,8 @@ namespace Transcript_Repository.Controllers
             //create 10 mock transcripts and add them to transcript list
             //basically this is replaced with get all transcripts this person should see
             Random rnd = new Random();
-            int noTrannies = rnd.Next(1,15);
-            for (int i = 0; i < noTrannies; i++)
+            int noTransc = rnd.Next(1,15);
+            for (int i = 0; i < noTransc; i++)
             {
                 model.Transcripts.Add(GiveMeAMockTranscript(999999, i));
             }
@@ -31,10 +31,14 @@ namespace Transcript_Repository.Controllers
         {
             ViewBag.Message = "Your detailed transcript page.";
 
-            //get 1 transcript
+            //Create model 
             var model = new TranscriptViewModel();
 
-            model.Transcripts.Add(   GiveMeAMockTranscript(int.Parse(TranscriptID)  )    );
+            //get Transcript
+            var transcript = GiveMeAMockTranscript(int.Parse(TranscriptID));
+
+            //add it to model
+            model.Transcripts.Add(transcript);
             return View(model);
         }
 
@@ -44,8 +48,8 @@ namespace Transcript_Repository.Controllers
             //create 10 mock transcripts and add them to transcript list
             //basically this is replaced with get all transcripts this person should see
             Random rnd = new Random();
-            int noTrannies = rnd.Next(1, 15);
-            for (int i = 0; i < noTrannies; i++)
+            int noTransc = rnd.Next(1, 15);
+            for (int i = 0; i < noTransc; i++)
             {
                 model.Transcripts.Add(GiveMeAMockTranscript(999999, i));
             }
